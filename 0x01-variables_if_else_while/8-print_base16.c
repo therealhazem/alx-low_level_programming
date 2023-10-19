@@ -1,25 +1,27 @@
 #include <stdio.h>
-
+#include <ctype.h>
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+*main - Prints all single digits of base 16 followed by new line
+*
+*Return: returns 0
+*/
 int main(void)
 {
-char num = 48;
+	int digit;
 
-while (num <= 57)
-{
-putchar(num);
-num++;
-}
-num = 97;
-while (num <= 102)
-{
-putchar(num);
-num++;
-}
-putchar('\n');
-return (0);
+	for (digit = '0'; digit <= '9'; digit++)
+	{
+		putchar(digit);
+		if (digit == '9')
+		{
+			digit = 'a';
+			for (; digit <= 'f'; digit++)
+			{
+				putchar(digit);
+			}
+			break;
+		}
+	}
+	putchar('\n');
+	return (0);
 }

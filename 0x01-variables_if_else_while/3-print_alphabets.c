@@ -1,25 +1,28 @@
 #include <stdio.h>
-
+#include <ctype.h>
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+*main - Program to print alphabet letters in all cases followed by new line
+*
+*Return: return 0
+*/
 int main(void)
 {
-char letter = 97, newline = 10;
+	int letter;
 
-while (letter < 123)
-{
-putchar(letter);
-letter++;
-}
-letter = 65;
-while (letter < 91)
-{
-putchar(letter);
-letter++;
-}
-putchar(newline);
-return (0);
+	for (letter = 'a'; letter <= 'z'; letter++)
+	{
+		letter = tolower(letter);
+		putchar(letter);
+		if (letter == 'z')
+		{
+			letter = 'A';
+			for (; letter <= 'Z'; letter++)
+			{
+				putchar(letter);
+			}
+			break;
+		}
+	}
+	putchar('\n');
+	return (0);
 }

@@ -1,17 +1,14 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * swap_int - check the code for Holberton School students.
- * @a: First variable to be swapped
- * @b: Second variable to be swapped
- * Return: Always 0.
- */
+*swap_int - swap two integers
+*@a: first integer
+*@b: second integer
+*Return: nothing
+*/
+
 void swap_int(int *a, int *b)
 {
-	int temp;
-
-	temp = *a;
-
-	*a = *b;
-	*b = temp;
+int tmp = *a;
+*a = *b;
+*b = tmp;
 }

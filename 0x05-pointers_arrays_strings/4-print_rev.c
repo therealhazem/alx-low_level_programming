@@ -1,21 +1,31 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * print_rev - check the code for Holberton School students.
- * @s: String to be reverse printed
- * Return: Always 0.
- */
+* print_rev - prints a string in reverse
+* @s: string to print
+*/
+
 void print_rev(char *s)
 {
-	int i;
+int len = 0, index = 0;
+len = _strlen(s);
 
-	i = 0;
+for (index = len - 1; index >= 0; index--)
+_putchar(s[index]);
 
-	while (s[i] != '\0')
-		i++;
+_putchar('\n');
+}
 
-	for (i -= 1; i >= 0; i--)
-		_putchar(s[i]);
+/**
+ *_strlen - returns the length of a string
+ * @s: string
+ *Return: returns lenght;
+ */
+int _strlen(char *s)
+{
+int count, inc;
+inc = 0;
+for (count = 0; s[count] != '\0'; count++)
+inc++;
 
-	_putchar('\n');
+return (inc);
 }

@@ -1,13 +1,12 @@
-#include "holberton.h"
-#include <stdio.h>
-
+#include "main.h"
 /**
- * mul - check the code for Holberton School students.
- * @a: First integer
- * @b: Second integer
- * Return: Always 0.
- */
+*mul - function that multipliestwo numbers
+*@a: first number
+*@b: second number
+*Return: returns result
+*/
+
 int mul(int a, int b)
 {
-	return (a * b);
+return (a * b);
 }
