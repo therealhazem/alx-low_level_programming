@@ -1,31 +1,24 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
+
 /**
- * _strncat - concatenate two strings
- * using at most n bytes from src
- * @dest: input value
- * @src: input value
- * @n: input value
- *
- * Return: dest
+ * _strncat - check the code for Holberton School students.
+ * @dest: Destination string
+ * @src: String to be added
+ * @n: Array block
+ * Return: Always 0.
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i;
-	int j;
+	int i, j;
 
-	i = 0;
-	while (dest[i] != '\0')
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+
+	for (j = 0; j < n; j++, i++)
 	{
-		i++;
+		dest[i] = src[j];
 	}
-	j = 0;
-	while (j < n && src[j] != '\0')
-	{
-	dest[i] = src[j];
-	i++;
-	j++;
-	}
-	dest[i] = '\0';
+
 	return (dest);
 }
-

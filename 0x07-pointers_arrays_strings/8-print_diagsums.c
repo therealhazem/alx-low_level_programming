@@ -1,28 +1,27 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdio.h>
+
 /**
- * print_diagsums - Entry point
- * @a: input
- * @size: input
- * Return: Always 0 (Success)
+ * print_diagsums - check the code for Holberton School students.
+ * @a: Multidimensional array
+ * @size: Size of array
+ * Return: Always 0.
  */
 void print_diagsums(int *a, int size)
 {
-	int sum1, sum2, y;
+	int i, sum, sum2;
 
-	sum1 = 0;
-	sum2 = 0;
+	sum = sum2 = 0;
 
-	for (y = 0; y < size; y++)
+	for (i = 0; i < size; i++)
 	{
-		sum1 = sum1 + a[y * size + y];
+		sum += a[(size * i) + i];
 	}
 
-	for (y = size - 1; y >= 0; y--)
+	for (i = 0; i < size; i++)
 	{
-		sum2 += a[y * size + (size - y - 1)];
+		sum2 += a[(i * size) + size - (i + 1)];
 	}
 
-	printf("%d, %d\n", sum1, sum2);
+	printf("%d, %d\n", sum, sum2);
 }
-

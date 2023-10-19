@@ -1,24 +1,21 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
+ * _strpbrk - check the code for Holberton School students.
+ * @s: The array to be searched
+ * @accept: Target bytes from searching
+ * Return: Always 0.
  */
 char *_strpbrk(char *s, char *accept)
 {
-		int k;
+	int i, j;
 
-		while (*s)
-		{
-			for (k = 0; accept[k]; k++)
-			{
-			if (*s == accept[k])
-			return (s);
-			}
-		s++;
-		}
+	for (i = 0; accept[i]; i++)
+	{
+		for (j = 0; accept[j]; j++)
+			if (accept[j] == s[i])
+				return (s + i);
+	}
 
-	return ('\0');
+	return (0);
 }
-

@@ -1,24 +1,29 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * _strcmp - compare string values
- * @s1: input value
- * @s2: input value
- *
- * Return: s1[i] - s2[i]
+ * _strcmp - check the code for Holberton School students.
+ * @s1: First string for comparison
+ * @s2: Second string for comparison
+ * Return: Always 0.
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i;
+	int i, value;
 
 	i = 0;
-	while (s1[i] != '\0' && s2[i] != '\0')
+	while (s1[i] != '\0')
 	{
-		if (s1[i] != s2[i])
+		if (s1[i] == s2[i])
 		{
-			return (s1[i] - s2[i]);
+			value = s1[i] - s2[i];
+			i++;
 		}
-		i++;
+		else
+		{
+			value = s1[i] - s2[i];
+			break;
+		}
 	}
-	return (0);
-}
 
+	return (value);
+}

@@ -1,21 +1,22 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * reverse_array - reverse array of integers
- * @a: array
- * @n: number of elements of array
+ * reverse_array - check the code for Holberton School students.
+ * @a: an array of integers
+ * @n: the number of elements to swap
  *
- * Return: void
+ * Return: nothing.
  */
 void reverse_array(int *a, int n)
 {
-	int i;
-	int t;
+	int i, temp;
 
-	for (i = 0; i < n--; i++)
+	n--;
+
+	for (i = 0; i < n; i++, n--)
 	{
-		t = a[i];
+		temp = a[i];
 		a[i] = a[n];
-		a[n] = t;
+		a[n] = temp;
 	}
 }
-

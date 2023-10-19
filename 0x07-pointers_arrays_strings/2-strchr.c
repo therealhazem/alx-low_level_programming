@@ -1,19 +1,23 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
- * Return: Always 0 (Success)
+ * _strchr - check the code for Holberton School students.
+ * @s: The array to be searched
+ * @c: The character being searched
+ * Return: Always 0.
  */
 char *_strchr(char *s, char c)
 {
-	int i = 0;
+	int i;
 
-	for (; s[i] >= '\0'; i++)
+	for (i = 0; s[i]; i++)
 	{
 		if (s[i] == c)
-			return (&s[i]);
+			return (s + i);
 	}
-	return (0);
-}
 
+	if (s[i] == c)
+		return (s + i);
+	else
+		return ('\0');
+}

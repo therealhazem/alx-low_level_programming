@@ -1,27 +1,29 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
- * Return: Always 0 (Success)
+ * _strstr - check the code for Holberton School students.
+ * @haystack: Array to be searched
+ * @needle: Target string
+ * Return: Always 0.
  */
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack != '\0'; haystack++)
+	int i, j;
+
+	if (needle[0] == '\0')
+		return (haystack);
+
+	for (i = 0; haystack[i]; i++)
 	{
-		char *l = haystack;
-		char *p = needle;
-
-		while (*l == *p && *p != '\0')
+		for (j = 0; needle[j]; j++)
 		{
-			l++;
-			p++;
-		}
+			if (haystack[i + j] != needle[j])
+				break;
 
-		if (*p == '\0')
-			return (haystack);
+			if (needle[i + j] == '\0')
+				return (haystack + i);
+		}
 	}
 
-	return (0);
+	return ('\0');
 }
-
