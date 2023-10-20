@@ -1,56 +1,73 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * op_add - Function that returns the sum of two values
- * @a: First argument
- * @b: Second argument
- * Return: The sum of two arguments
+ * op_add - addition
+ * @a: sumnd 1
+ * @b: sumnd 2
+ * Return: rsult
  */
+
 int op_add(int a, int b)
 {
 	return (a + b);
 }
 
 /**
- * op_sub - Function that returns the difference of two values
- * @a: First argument
- * @b: Second argument
- * Return: The difference of two arguments
+ * op_sub - subtraction
+ * @a: minuend
+ * @b: sustrnd
+ * Return: result
  */
+
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
 
 /**
- * op_mul - Function that returns the product of two values
- * @a: First argument
- * @b: Second argument
- * Return: The product of two values
+ * op_mul - multiplication
+ * @a: multp 1
+ * @b: multp 2
+ * Return: result
  */
+
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
 
 /**
- * op_div - Function that returns the quotient of two values
- * @a: First argument
- * @b: Second argument
- * Return: The quotient of two values
+ * op_div - division
+ * @a: divisr
+ * @b: dividndo
+ * Return: reult
  */
+
 int op_div(int a, int b)
 {
-	return (a / b);
+	if (b)
+	{
+		return (a / b);
+	}
+	printf("Error\n");
+	exit(100);
 }
 
 /**
- * op_mod - Function that returns the remainder of two values
- * @a: First argument
- * @b: Second argument
- * Return: The remainder of two values
+ * op_mod - modulo
+ * @a: vaper 1
+ * @b: vaper 2
+ * Return: result
  */
+
 int op_mod(int a, int b)
 {
-	return (a % b);
+	if (b)
+	{
+		return (a % b);
+	}
+	printf("Error\n");
+	exit(100);
 }
+
