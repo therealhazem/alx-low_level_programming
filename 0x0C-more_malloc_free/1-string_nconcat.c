@@ -1,45 +1,52 @@
-#include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
- * string_nconcat - Concatenate the 2nd string to the 1st string up to n bytes
- * @s1: Destination string
- * @s2: String to be merged with
- * @n: Number of bytes
- * Return: Pointer to first index of the concatenated string
+ * string_nconcat - concatenates two strings.
+ * @s1: first string
+ * @s2: second string
+ * @n: index
+ * Return: char pointer
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j, k;
-	char *ptr = NULL;
+	char *p;
+	unsigned int size1 = 0, size2 = 0, i;
 
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
 
-	for (i = 0; s1[i] != '\0'; i++)
-		;
+	while (s1[size1] != '\0')
+	{
+		size1++;
+	}
 
-	for (j = 0; s2[j] != '\0'; j++)
-		;
+	while (s2[size2] != '\0')
+	{
+		size2++;
+	}
 
-	if (j <= n)
-		n = j;
+	if (n > size2)
+	n = size2;
+	p = malloc((size1 + n + 1) * sizeof(char));
 
-	ptr = malloc((i + n + 1) * sizeof(char));
+	if (p == NULL)
+		return (0);
 
-	if (ptr == NULL)
-		return (NULL);
+	for (i = 0; i < size1; i++)
+	{
+		p[i] = s1[i];
+	}
 
-	for (k = 0; s1[k] != '\0'; k++)
-		ptr[k] = s1[k];
+	for (; i < (size1 + n); i++)
+	{
+		p[i] = s2[i - size1];
+	}
+	p[i] = '\0';
 
-	for (k = 0; k < n; k++)
-		ptr[k + i] = s2[k];
-
-	ptr[k + i] = '\0';
-
-	return (ptr);
+return (p);
 }
+
