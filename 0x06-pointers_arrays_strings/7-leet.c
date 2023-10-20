@@ -1,26 +1,22 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * leet - check the code for Holberton School students.
- * @str: String to be converted
- * Return: Always 0.
- */
+* leet - function that encode a string
+*@str:string that will be encoded
+*Return:returns encoded string
+*/
+
 char *leet(char *str)
 {
-	char num[] = "01347";
-	char upLTR[] = "OLEAT";
-	char lowLTR[] = "oleat";
-	int i, j;
+	int index1 = 0, index2;
+	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	for (i = 0; str[i] != '\0'; i++)
+	while (str[++index1])
 	{
-		for (j = 0; lowLTR[j] != '\0'; j++)
+		for (index2 = 0; index2 <= 7; index2++)
 		{
-			if (str[i] == upLTR[j] || str[i] == lowLTR[j])
-			{
-				str[i] = num[j];
-				break;
-			}
+			if (str[index1] == leet[index2] ||
+			 str[index1] - 32 == leet[index2])
+				str[index1] = index2 + '0';
 		}
 	}
 	return (str);

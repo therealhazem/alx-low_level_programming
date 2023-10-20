@@ -1,27 +1,19 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * string_toupper - check the code for Holberton School students.
- * @str: String to be reversed
- * Return: Always 0.
- */
+*string_toupper - changes all lowercases letters of a string to uppercase
+*@str: parameter
+*Return: returns a character
+*/
+
 char *string_toupper(char *str)
 {
-	int i, j;
-	char letter;
+	int index = 0;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-
-	for (j = 0; j < i; j++)
+	while (str[index++])
 	{
-		letter = str[j];
-		if (letter >= 'a' && letter <= 'z')
-		{
-			letter -= 32;
-			str[j] = letter;
-		}
+		if (str[index] >= 'a' && str[index] <= 'z')
+			str[index] -= 32;
 	}
 
 	return (str);
