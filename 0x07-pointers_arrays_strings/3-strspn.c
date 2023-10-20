@@ -1,27 +1,31 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * _strspn - check the code for Holberton School students.
- * @s: Array for scanning
- * @accept: Characters to search for
- * Return: Always 0.
- */
+*_strspn - search the number of bytes in the initial
+* segment of s which consist only of bytes from accept
+*@s:segment targeted
+*@accept:reference bytes container
+*
+*Return:returns the number of bytes in the initial
+* segment of s which consist only of bytes from accept
+*/
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, count;
+	unsigned int bytes = 0;
+	int i;
 
-	count = 0;
-	for (i = 0; s[i] != '\0'; i++)
+	while (*s)
 	{
-		if (count != i)
-			break;
-
-		for (j = 0; accept[j] != '\0'; j++)
+		for (i = 0; accept[i]; i++)
 		{
-			if (s[i] == accept[j])
-				count++;
+			if (accept[i] == *s)
+			{
+				bytes++;
+				break;
+			}
+			else if ((accept[i + 1]) == '\0')
+				return (bytes);
 		}
+		s++;
 	}
-
-	return (count);
+	return (bytes);
 }
