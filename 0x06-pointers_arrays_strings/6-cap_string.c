@@ -1,32 +1,42 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
-*cap_string - function that capitalize first character of a word
-*@str: string to capitalize
-*Return:returns the capitalized string
-*/
+ * cap_string - check the code for Holberton School students.
+ * @str: String for capitalization modification
+ * Return: Always 0.
+ */
 char *cap_string(char *str)
 {
-	int index = 0;
+	int i, j, counter;
 
-	while (str[++index])
+	i = counter = 0;
+
+	while (str[i] != '\0')
+		i++;
+
+	for (j = 0; j < i; j++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
+		if (counter == 0)
+		{
+			if (str[j] >= 'a' && str[j] <= 'z')
+				str[j] = str[j] - 32;
+			else
+				counter++;
+		}
 
-		if (str[index - 1] == ' ' ||
-				str[index - 1] == '\t' ||
-				str[index - 1] == '\n' ||
-				str[index - 1] == ',' ||
-				str[index - 1] == ';' ||
-				str[index - 1] == '.' ||
-				str[index - 1] == '!' ||
-				str[index - 1] == '?' ||
-				str[index - 1] == '"' ||
-				str[index - 1] == '(' ||
-				str[index - 1] == ')' ||
-				str[index - 1] == '{' ||
-				str[index - 1] == '}')
-			str[index] -= 32;
+		if (str[j] == '!' || str[j] == '"' || str[j] == '(' || str[j] == ')')
+			counter = 0;
+		else if (str[j] == ',' || str[j] == '.' || str[j] == '{' || str[j] == '}')
+			counter = 0;
+		else if (str[j] == ';' || str[j] == '?' || str[j] == '\n')
+			counter = 0;
+		else if (str[j] == '\t')
+			counter = 0;
+		else if (str[j] == ' ')
+			counter = 0;
+		else
+			counter++;
 	}
+
 	return (str);
 }
