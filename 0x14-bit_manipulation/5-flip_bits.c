@@ -1,23 +1,23 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * flip_bits - Function that determines the minimum number of
- * bits to change
- * @n: The value to be modified
- * @m: The value to be modified to
- * Return: The number of bits modified
- */
+*flip_bits - gets the number of bits to flip to get from n to m
+*@n: initial number
+*@m: final number
+*
+*Return: the number of flipped bits
+*/
+
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
+	unsigned long int flipped = n ^ m;
 	int count = 0;
-	unsigned long int xor = n ^ m;
 
-	while (xor != 0)
+	while (flipped)
 	{
-		if ((xor & 1) != 0)
+		if (flipped & 1)
 			count++;
-		xor = xor >> 1;
+		flipped >>= 1;
 	}
-
 	return (count);
 }

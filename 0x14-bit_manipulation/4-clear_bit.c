@@ -1,21 +1,18 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * clear_bit - Function that sets a bit to 0 at a particular location
- * @n: Pointer to decimal
- * @index: The binary position to modify
- * Return: 1 if success, -1 if failure
- */
+*clear_bit - sets a bit at a position to 0
+*@n: number to be used
+*@index: position to be cleared
+*
+*Return: 1 on success, -1 on fail
+*/
+
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int mask = 1;
-
-	if (index >= sizeof(unsigned long int) * 8)
+	if (n == NULL || (index > (sizeof(unsigned long int) * 8) - 1))
 		return (-1);
 
-	mask = mask << index;
-	mask = ~mask;
-
-	*n = *n & mask;
+	*n &= ~(1 << index);
 	return (1);
 }

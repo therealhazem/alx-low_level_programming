@@ -1,22 +1,17 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * get_bit - Function that returns the bit at a specified location
- * @n: The decimal number being passed in
- * @index: The binary position to check
- * Return: The value at a particular index
- */
+*get_bit - get the value of a bit at the given index
+*@n: the number
+*@index: index starting from 0 of the bit required
+*
+*Return: The converted value
+*/
+
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int mask = 1;
-
-	if (index >= sizeof(unsigned long int) * 8)
+	if (index > 63)
 		return (-1);
 
-	mask = mask << index;
-
-	if ((n & mask) == 0)
-		return (0);
-	else
-		return (1);
+	return ((n >> index) & 1);
 }
